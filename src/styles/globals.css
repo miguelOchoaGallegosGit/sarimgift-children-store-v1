@@ -1,0 +1,161 @@
+/* ============================================================
+   SARIM GIFT – Global Styles & Design Tokens
+   ============================================================ */
+
+/* --- CSS Custom Properties --------------------------------- */
+:root {
+  /* Colors */
+  --pink:           #E91E8C;
+  --pink-dark:      #C2186F;
+  --pink-light:     #FFE4F0;
+  --pink-soft:      #FFF0F7;
+  --pink-muted:     #F9D0E5;
+  --purple:         #A855F7;
+  --purple-light:   #F3E8FF;
+  --green-wa:       #25D366;
+  --green-wa-dark:  #1DA851;
+  --navy:           #1A1A5E;
+  --bg:             #FDFAF8;
+  --bg-alt:         #F8F4F1;
+  --card:           #FFFFFF;
+  --text:           #1A1A2E;
+  --text-medium:    #4A4A6A;
+  --muted:          #9B9BB0;
+  --border:         #EDE8E3;
+  --white:          #FFFFFF;
+
+  /* Typography */
+  --font-main:      'Nunito', sans-serif;
+  --font-logo:      'Pacifico', cursive;
+
+  /* Sizes */
+  --radius-sm:      10px;
+  --radius-md:      16px;
+  --radius-lg:      24px;
+  --radius-xl:      32px;
+  --radius-pill:    999px;
+
+  /* Shadows */
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.06);
+  --shadow-md:      0 4px 20px rgba(233,30,140,0.12);
+  --shadow-lg:      0 8px 40px rgba(233,30,140,0.18);
+  --shadow-card:    0 4px 24px rgba(0,0,0,0.08);
+
+  /* Layout */
+  --max-width:      480px;
+  --nav-height:     64px;
+  --header-height:  60px;
+}
+
+/* --- Reset ------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* --- Layout Container -------------------------------------- */
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+  min-height: 100vh;
+  background: var(--bg);
+  position: relative;
+  padding-bottom: calc(var(--nav-height) + 16px);
+  box-shadow: 0 0 60px rgba(0,0,0,0.08);
+}
+
+/* --- Desktop overrides ------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --max-width: 100%;
+  }
+
+  .app-wrapper {
+    max-width: 100%;
+    padding-bottom: 0;
+    box-shadow: none;
+  }
+}
+
+/* --- Utility classes --------------------------------------- */
+.section-padding {
+  padding: 24px 16px;
+}
+
+.text-pink    { color: var(--pink); }
+.text-purple  { color: var(--purple); }
+.text-muted   { color: var(--muted); }
+.fw-800       { font-weight: 800; }
+.fw-700       { font-weight: 700; }
+
+/* --- Scrollbar styling ------------------------------------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--pink-muted); border-radius: 999px; }
+
+/* --- Animations -------------------------------------------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+@keyframes wave-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}

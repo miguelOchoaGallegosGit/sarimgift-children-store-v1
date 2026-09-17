@@ -1,0 +1,12 @@
+.wave-divider {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 8px;
+}
+
+.wave-svg {
+  width: 120px;
+  height: auto;
+  animation: wave-float 3s ease-in-out infinite;
+  opacity: 0.8;
+}

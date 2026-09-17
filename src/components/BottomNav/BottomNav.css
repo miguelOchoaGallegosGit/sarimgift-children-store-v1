@@ -1,0 +1,78 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.07);
+}
+
+.bottom-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: var(--nav-height);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 8px;
+}
+
+/* Nav item */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.2s;
+  padding: 6px 0;
+}
+
+.nav-item.active {
+  color: var(--pink);
+}
+
+/* Icon wrap (relative for pill) */
+.nav-icon-wrap {
+  position: relative;
+  width: 40px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated pill background */
+.nav-active-pill {
+  position: absolute;
+  inset: 0;
+  background: var(--pink-light);
+  border-radius: var(--radius-pill);
+  z-index: 0;
+}
+
+.nav-icon {
+  position: relative;
+  z-index: 1;
+  transition: color 0.2s;
+}
+
+/* Label */
+.nav-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Desktop: hide bottom nav */
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}

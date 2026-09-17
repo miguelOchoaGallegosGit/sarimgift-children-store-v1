@@ -1,0 +1,234 @@
+﻿/* === Overlay === */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(20, 10, 30, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: overlayIn 0.25s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (min-width: 640px) {
+  .modal-overlay { align-items: center; padding: 24px; }
+}
+
+/* === Panel === */
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 28px 28px 0 0;
+  overflow: hidden;
+  box-shadow: 0 -8px 48px rgba(233,30,140,0.18), 0 32px 64px rgba(0,0,0,0.22);
+  animation: panelUp 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  max-height: 94dvh;
+  overflow-y: auto;
+}
+
+@keyframes panelUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@media (min-width: 640px) {
+  .modal-panel {
+    border-radius: 28px;
+    max-height: 90dvh;
+    animation: panelScale 0.3s cubic-bezier(0.34,1.4,0.64,1);
+  }
+  @keyframes panelScale {
+    from { transform: scale(0.88); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+}
+
+/* === Image === */
+.modal-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #fdf2f8;
+  overflow: hidden;
+}
+
+.modal-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.modal-img-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #fff);
+}
+
+/* === Close === */
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #555;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.14);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #ffe4f0;
+  color: #E91E8C;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* === Body === */
+.modal-body { padding: 20px 24px 28px; }
+
+.modal-size-badge {
+  display: inline-block;
+  background: #FFE4F0;
+  color: #E91E8C;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.modal-name {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1.25;
+  margin-bottom: 4px;
+}
+
+.modal-price {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #E91E8C, #9C27B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+/* === Details grid === */
+.modal-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.modal-detail-item {
+  background: #fdf8ff;
+  border: 1px solid rgba(233,30,140,0.1);
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-detail-item.full-width { grid-column: 1 / -1; }
+
+.modal-detail-label {
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.modal-detail-value {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  text-transform: capitalize;
+}
+
+.modal-color-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-color-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  flex-shrink: 0;
+}
+
+.modal-sizes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.modal-size-chip {
+  background: white;
+  border: 1.5px solid rgba(233,30,140,0.3);
+  color: #E91E8C;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 8px;
+  min-width: 28px;
+  text-align: center;
+}
+
+/* === WhatsApp CTA === */
+.modal-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-wa-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+  color: white;
+}
+
+.modal-wa-btn:active { transform: scale(0.97); }
+
+.modal-wa-icon {
+  width: 22px; height: 22px;
+  flex-shrink: 0;
+}
