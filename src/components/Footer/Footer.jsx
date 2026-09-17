@@ -10,11 +10,11 @@ const Footer = () => {
           <span className="footer-logo-cursive">sarim</span>
           <span className="footer-logo-bold"> Gift</span>
         </div>
-        <p className="footer-tagline">Curating joy for every little girl.</p>
+        <p className="footer-tagline">Fomentando la alegría en cada niña..</p>
 
 
 
-        <p className="footer-copy">© 2026 Sarim Gift. All rights reserved.</p>
+        <p className="footer-copy">© 2026 Sarim Gift. Todos los derechos reservados.</p>
       </div>
     </footer>
   );
