@@ -4,7 +4,7 @@ import { Home, Grid2x2 } from 'lucide-react';
 import './BottomNav.css';
 
 const navItems = [
-  { id: 'home', label: 'Home', Icon: Home,    href: '#home' },
+  { id: 'home', label: 'Home', Icon: Home, href: '#home' },
   { id: 'shop', label: 'Shop', Icon: Grid2x2, href: '#favoritos' },
 ];
 
