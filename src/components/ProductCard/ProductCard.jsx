@@ -4,16 +4,17 @@ import './ProductCard.css';
 
 const ProductCard = ({ product, index = 0, onOpenModal }) => {
   const [imgError, setImgError] = useState(false);
+  const isOutOfStock = product.cantidad === 0 || Number(product.cantidad) === 0;
 
   return (
     <motion.article
-      className="product-card"
+      className={`product-card ${isOutOfStock ? 'is-out-of-stock' : ''}`}
       id={`product-card-${product.id}`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, delay: index * 0.08, ease: 'easeOut' }}
-      whileHover={{ y: -4, boxShadow: '0 8px 32px rgba(233,30,140,0.16)' }}
+      whileHover={isOutOfStock ? { y: -2 } : { y: -4, boxShadow: '0 8px 32px rgba(233,30,140,0.16)' }}
     >
       {/* Image area */}
       <div className="card-img-wrap">
@@ -36,6 +37,11 @@ const ProductCard = ({ product, index = 0, onOpenModal }) => {
           />
         )}
 
+        {/* Sold out badge */}
+        {isOutOfStock && (
+          <div className="card-soldout-badge">Agotado</div>
+        )}
+
         {/* Size badge */}
         <div className="card-size-badge">{product.sizeLabel}</div>
       </div>
@@ -44,15 +50,20 @@ const ProductCard = ({ product, index = 0, onOpenModal }) => {
       <div className="card-info">
         <h3 className="card-name">{product.descripcion}</h3>
         <p className="card-price">{product.precio}</p>
-        <motion.button
-          className="card-btn"
-          id={`btn-detail-${product.id}`}
-          onClick={() => onOpenModal && onOpenModal(product)}
-          whileHover={{ scale: 1.03, background: 'linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%)' }}
-          whileTap={{ scale: 0.97 }}
-        >
-          Ver Detalle
-        </motion.button>
+
+        {isOutOfStock ? (
+          <div className="card-tag-soldout">Agotado</div>
+        ) : (
+          <motion.button
+            className="card-btn"
+            id={`btn-detail-${product.id}`}
+            onClick={() => onOpenModal && onOpenModal(product)}
+            whileHover={{ scale: 1.03, background: 'linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%)' }}
+            whileTap={{ scale: 0.97 }}
+          >
+            Ver Detalle
+          </motion.button>
+        )}
       </div>
     </motion.article>
   );

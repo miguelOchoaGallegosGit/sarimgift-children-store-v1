@@ -8,8 +8,6 @@ import './ProductGrid.css';
 const ProductGrid = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Filtrar productos sin stock (cantidad = 0)
-  const availableProducts = products.filter((p) => p.cantidad > 0);
 
   return (
     <>
@@ -19,9 +17,9 @@ const ProductGrid = () => {
           <h2 className="grid-title">Favoritos del momento</h2>
         </div>
 
-        {/* Grid – todos los modelos disponibles */}
+        {/* Grid – catálogo de productos */}
         <div className="products-grid">
-          {availableProducts.map((product, i) => (
+          {products.map((product, i) => (
             <ProductCard
               key={product.id}
               product={product}
